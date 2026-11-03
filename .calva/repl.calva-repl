@@ -1,0 +1,283 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+; 
+; See also the Calva Inspector: https://calva.io/inspector/
+
+(when-let [requires (resolve 'clojure.main/repl-requires)] (clojure.core/apply clojure.core/require @requires))
+clj꞉pretraga-filmova.core꞉> 
+(println "Hello, World!")
+clj꞉pretraga-filmova.core꞉> 
+(defn -main
+  "I don't do a whole lot ... yet."
+  [& args]
+  (println "Hello, World!"))
+clj꞉pretraga-filmova.core꞉> 
+(println "Hello, World!")
+clj꞉pretraga-filmova.core꞉> 
+(println "Hello, World!")
+clj꞉pretraga-filmova.core꞉> 
+["The day is beuatiful"]
+clj꞉pretraga-filmova.core꞉> 
+(str/split "The day is beuatiful" #" ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class) 
+  (:require
+    [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text]
+  (str/split (text) #" "))
+clj꞉pretraga-filmova.core꞉> 
+(str/split "The day is beuatiful" #" ")
+clj꞉pretraga-filmova.core꞉> 
+["I want tense sci-fi movie, but with little humor"]
+clj꞉pretraga-filmova.core꞉> 
+"I want tense sci-fi movie, but with little humor"
+clj꞉pretraga-filmova.core꞉> 
+(to-words "I want tense sci-fi movie, but with little humor")
+clj꞉pretraga-filmova.core꞉> 
+(to-words "I want tense sci-fi movie, but with little humor")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text]
+  (str/split text #" "))
+clj꞉pretraga-filmova.core꞉> 
+(to-words "I want tense sci-fi movie, but with little humor")
+clj꞉pretraga-filmova.core꞉> 
+(to-words "I want tense sci-fi movie, but with little humor. I also want it to last up to 90 minutes.")
+clj꞉pretraga-filmova.core꞉> 
+(to-words "I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes.")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text]
+  (str/trim text)
+  (str/split text #" "))
+clj꞉pretraga-filmova.core꞉> 
+(to-words " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split text #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(str/trim " I like you ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  str/trim
+  (str/split text #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim text) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. ")
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(rm-punctuation "Iva. Hello! i was wondering???.")
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text "\\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(rm-punctuation "Iva. Hello! i was wondering???.")
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(rm-punctuation "Iva. Hello! i was wondering???.")
+clj꞉pretraga-filmova.core꞉> 
+(rm-punctuation "Iva. Hello! i was wondering???.")
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim text) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" "then" "in" "on" "at" "with" "which" "who" "am" "are" "if" "because" "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" "each" "too"})
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" "then" "on" "at" "with" "which" "who" "am" "are" "if" "because" "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" "each" "too"})
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-stopwords [processed-text]
+  (remove stop-words processed-text))
+clj꞉pretraga-filmova.core꞉> 
+(rm-stopwords ((to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+                          I also want it to last up to 90 minutes. "))))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim text) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" "then" "on" "at" "with" "which" "who" "am" "are" "if" "because" "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" "each" "too" "of" "bit"})
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-stopwords [processed-text]
+  (remove stop-words processed-text))
+clj꞉pretraga-filmova.core꞉> 
+(rm-stopwords (to-words (rm-punctuation " I want romantic comedy movie, but to have a little bit of drama")))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim (str/lower-case text)) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" "then" "on" "at" "with" "which" "who" "am" "are" "if" "because" "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" "each" "too" "of" "bit" "i" "want"})
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-stopwords [processed-text]
+  (remove stop-words processed-text))
+clj꞉pretraga-filmova.core꞉> 
+(rm-stopwords (to-words (rm-punctuation " I want romantic comedy movie, but to have a little bit of drama")))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim (str/lower-case text)) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" 
+                  "then" "on" "at" "with" "which" "who" "am" "are" "if" "because"
+                  "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" 
+                  "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" 
+                  "each" "too" "of" "bit" "i" "want"})
+clj꞉pretraga-filmova.core꞉> 
+(
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-stopwords [processed-text]
+  (remove stop-words processed-text))
+clj꞉pretraga-filmova.core꞉> 
+(rm-stopwords (to-words (rm-punctuation " I want romantic comedy movie, but to have a little bit of drama")))
+clj꞉pretraga-filmova.core꞉> 
+(defn extract-key-words [text]
+  (rm-stopwords (to-words (rm-punctuation text))))
+clj꞉pretraga-filmova.core꞉> 
+(ns pretraga-filmova.core
+  (:gen-class)
+  (:require
+   [clojure.string :as str]))
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-punctuation [text]
+  (str/replace text #"\p{Punct}" ""))
+clj꞉pretraga-filmova.core꞉> 
+(defn to-words [text] 
+  (str/split (str/trim (str/lower-case text)) #"\s+"))
+clj꞉pretraga-filmova.core꞉> 
+(to-words (rm-punctuation " I want tense sci-fi movie, but with little humor. 
+           I also want it to last up to 90 minutes. "))
+clj꞉pretraga-filmova.core꞉> 
+(def stop-words #{"is" "and" "an" "a" "the" "but" "for" "or" "in" "that" "this" 
+                  "then" "on" "at" "with" "which" "who" "am" "are" "if" "because"
+                  "about" "other" "some" "such" "how" "why" "only" "will" "can" "just" 
+                  "should" "would" "have" "has" "had" "to" "here" "where" "all" "any" 
+                  "each" "too" "of" "bit" "i" "want" "maybe" "like"})
+clj꞉pretraga-filmova.core꞉> 
+(defn rm-stopwords [processed-text]
+  (remove stop-words processed-text))
+clj꞉pretraga-filmova.core꞉> 
+(rm-stopwords (to-words (rm-punctuation " I want romantic comedy movie, but to have a little bit of drama")))
+clj꞉pretraga-filmova.core꞉> 
+(defn extract-key-words [text]
+  (rm-stopwords (to-words (rm-punctuation text))))
+clj꞉pretraga-filmova.core꞉> 
+(extract-key-words "I want romantic comedy movie, but to have a little bit of drama! Maybe something like Proposal!!!" )
+clj꞉pretraga-filmova.core꞉> 
