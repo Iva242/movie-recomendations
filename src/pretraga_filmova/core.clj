@@ -43,4 +43,39 @@
 (defn extract-key-words [text]
   (rm-stopwords (to-words (rm-punctuation text))))
 
-(extract-key-words "I want romantic comedy movie, but to have a little bit of drama! Maybe something like Proposal!!!" )
+(def words (extract-key-words "I want romantic comedy movie, but to have a little bit of drama! Maybe something like Proposal!!!, and not horror. If possible some comedy.") )
+
+(def negations #{"not" "no" "without" "never"})
+;; ne radi ako imamo vise negacija u tekstu koji saljemo!!
+;;(first(rest (drop-while (complement negations) words)))
+
+
+;; pravimo funkciju koja ce da prepozna negacije
+(defn get-neg-words [words]
+  (cond
+    (empty? words)
+    '()
+    (negations (first words))
+    (cons (second words) (get-neg-words (drop 2 words)))
+    :else
+    (get-neg-words (rest words))
+    ))
+
+;;zatim iz liste izbacujemo te negativne reci
+(defn search-parameters [words]
+   (cond
+    (empty? words)
+    '()
+    (negations (first words))
+    (search-parameters (drop 2 words))
+    :else
+    (cons (first words) (search-parameters (rest words)))
+     ))
+
+;;obe funkcije nam trebaju za filtriranje
+
+;;proba
+(get-neg-words words)
+(search-parameters words)
+
+
